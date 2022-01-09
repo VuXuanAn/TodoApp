@@ -21,7 +21,7 @@ async function getTodo(req, res, next) {
 router.get('/', async (req, res) => {
 	try {
 		const todoList = await Todo.find();
-		res.json(todoList);
+		res.status(200).json(todoList);
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
