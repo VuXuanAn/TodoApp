@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getAllBlog } from './action/todo.action';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTodo } from './action/todo.action';
 import './App.css';
 import Table from './component/todoTable'
 import banner from './image/banner.png'
@@ -10,10 +10,10 @@ function App() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllBlog())
+    dispatch(getAllTodo())
   }, []);
 
-
+  const listTodo = useSelector(state => state.Todo)
   return (
     <div className="App">
       <div className='container'>
@@ -35,7 +35,7 @@ function App() {
           <div className='col-sm-8 '>
             <div className='listTodo'>
               <button type="button" className="btn btn-primary mb-2">Thêm công việc</button>
-              <Table />
+              <Table todoList={listTodo.todoList} />
             </div>
           </div>
         </div>

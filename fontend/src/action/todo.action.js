@@ -2,7 +2,7 @@ import { todoConstants } from "./constants"
 import axios from '../helpers/connect'
 
 // get all todos
-export const getAllBlog = () => {
+export const getAllTodo = () => {
     return async (dispatch) => {
         dispatch({
             type: todoConstants.CREATE_TODO_REQUEST

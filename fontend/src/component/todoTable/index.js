@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
-const Index = () => {
+const Index = (props) => {
     return (
         <div>
             <p>Công việc chưa hoàn thành</p>
@@ -16,87 +16,23 @@ const Index = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
-                </tbody>
-                <p>Công việc đã hoàn thành</p>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="" />
-                            </label>
-                        </td>
-                        <td>
-                            <AiFillDelete />
-                            <AiFillEdit />
-                        </td>
-                    </tr>
+                    {props.todoList.map(todo => {
+                        return (
+                            <tr>
+                                <td>{todo.title}</td>
+                                <td>{todo.content}</td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="" checked={todo.isDone} />
+                                    </label>
+                                </td>
+                                <td>
+                                    <AiFillDelete />
+                                    <AiFillEdit />
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
 
